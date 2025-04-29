@@ -1,0 +1,54 @@
+import React, { useContext } from 'react'
+import { ShopContext } from '../context/shopContext'
+import Title from '../components/Title';
+
+const Orders = () => {
+  const { products, currency } = useContext(ShopContext);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] px-4 py-10 text-white">
+      <div className="max-w-5xl mx-auto">
+        <Title text1={'MY'} text2={'ORDERS'} />
+
+        <div className="mt-10 space-y-8">
+          {products.slice(1, 4).map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col md:flex-row gap-6 bg-[#111] border border-[#222] rounded-2xl p-5 shadow-md hover:border-green-500 transition-all duration-300"
+            >
+              <img
+                src={item.image[0]}
+                alt={item.name}
+                className="w-full md:w-48 h-48 object-cover rounded-xl border border-[#2a2a2a]"
+              />
+
+              <div className="flex-1 flex flex-col justify-between">
+                <div>
+                  <p className="text-xl font-semibold text-green-400">{item.name}</p>
+                  <div className="text-sm text-gray-400 mt-2 space-y-1">
+                    <p>{currency}{item.price}</p>
+                    <p>Quantity: 1</p>
+                    <p>Size: M</p>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-3">Date: <span className="text-white">25, July</span></p>
+                </div>
+
+                <div className="mt-6 flex justify-between items-center">
+                  <div className="text-sm text-green-500">
+                    <p className="font-semibold">✓ Ready to Ship</p>
+                  </div>
+                  <button className="bg-green-500 hover:bg-green-600 text-black px-5 py-2 rounded-xl font-medium transition">
+                    Track Order
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  )
+}
+
+export default Orders
