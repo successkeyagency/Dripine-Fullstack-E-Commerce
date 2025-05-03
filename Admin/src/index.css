@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+select,input,textarea{
+    border: 1px solid green;
+    outline-color: greenyellow ;
+}
+.active {
+    background-color: green;
+    border-color: green;
+}
