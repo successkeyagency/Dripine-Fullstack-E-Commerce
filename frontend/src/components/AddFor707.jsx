@@ -2,22 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Box, Float } from "@react-three/drei";
+import { Link } from "react-router-dom";
 
 const AddFor707 = () => {
   return (
     <section className="relative w-full py-20 bg-black overflow-hidden">
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden md:block z-0">
-        <Canvas>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[5, 5, 5]} />
-          <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-            <Box args={[2.5, 2.5, 2.5]}>
-              <meshStandardMaterial color="#facc15" />
-            </Box>
-          </Float>
-          <OrbitControls enableZoom={false} enablePan={false} autoRotate />
-        </Canvas>
-      </div>
 
       <div className="relative z-10 max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 gap-10">
         <motion.div
@@ -42,13 +31,16 @@ const AddFor707 = () => {
           >
             The future of fashion is here. Limited edition. Unmatched style.
           </motion.p>
-          <motion.button
-            className="bg-yellow-500 text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-yellow-400 transition duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Discover 705
-          </motion.button>
+          <Link to="collections">
+            <motion.button
+              className="bg-yellow-500 text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-yellow-400 transition duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Discover 705
+            </motion.button>
+          </Link>
+          
         </motion.div>
 
         <motion.div

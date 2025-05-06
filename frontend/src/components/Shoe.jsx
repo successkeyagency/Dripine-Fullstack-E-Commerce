@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 const ExclusiveShoesSlider = () => {
   const { products } = useContext(ShopContext);
   const exclusiveProducts = products.filter(
-    (item) => item.category === "shoes"
+    (item) => item.category === "Shoes"
   );
 
   const settings = {
@@ -30,7 +30,27 @@ const ExclusiveShoesSlider = () => {
   };
 
   return (
-    <section className="relative  text-white py-20 overflow-hidden z-10">
+    
+    <section >
+       <div className="w-full h-[50vh] relative overflow-hidden">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-full object-cover"
+    >
+      <source
+        src="https://videos.pexels.com/video-files/7972014/7972014-uhd_2732_1440_25fps.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-4xl font-bold">
+      Step Into The- <span className="text-green-600"> Hype</span> 
+    </div>
+  </div>
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -40,6 +60,7 @@ const ExclusiveShoesSlider = () => {
         <Title text1="EXCLUSIVE" text2="SHOES" />
         <p className="text-gray-400 mt-2 text-lg">Hype. Heat. Limited drops.</p>
       </motion.div>
+      
 
       <motion.div
         initial={{ opacity: 0 }}

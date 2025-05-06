@@ -6,7 +6,21 @@ import { ShopContext } from "../context/shopContext";
 
 const Navbar = () => {
   const [visible, setvisible] = useState(false);
-  const { setShowSearch, getCartCount } = useContext(ShopContext);
+  const {
+    setShowSearch,
+    getCartCount,
+    navigate,
+    token,
+    setToken,
+    setCartItems,
+  } = useContext(ShopContext);
+
+  const logout = () => {
+    navigate("/login");
+    localStorage.removeItem("token");
+    setToken("");
+    setCartItems({});
+  };
 
   return (
     <div className="w-full flex items-center justify-between px-6 py-5 bg-black text-white shadow-lg border-b border-neutral-800 relative z-50">
@@ -26,7 +40,10 @@ const Navbar = () => {
       </ul>
 
       <div className="flex flex-1 md:flex-none md:justify-start">
+        <Link to="/">
         <img src={assets.logo} alt="Logo" className="w-16 object-contain" />
+        </Link>
+        
       </div>
 
       <div className="flex items-center gap-5 justify-end flex-1">
@@ -37,16 +54,30 @@ const Navbar = () => {
         />
 
         <div className="relative group">
-          <Link to="/login">
-            <FaUser className="text-white cursor-pointer" size={20} />
-          </Link>
-          <div className="absolute top-10 right-0 bg-white text-black shadow-xl rounded-xl p-4 min-w-[160px] hidden group-hover:block transition-all duration-300 z-50">
-            <p className="py-1 hover:text-yellow-500 cursor-pointer">
-              My Profile
-            </p>
-            <p className="py-1 hover:text-yellow-500 cursor-pointer">Orders</p>
-            <p className="py-1 hover:text-red-500 cursor-pointer">Logout</p>
-          </div>
+          <FaUser
+            onClick={() => (token ? null : navigate("/login"))}
+            className="text-white cursor-pointer"
+            size={20}
+          />
+
+          {token && (
+            <div className="absolute top-10 right-0 bg-white text-black shadow-xl rounded-xl p-4 min-w-[160px] hidden group-hover:block transition-all duration-300 z-50">
+              <p className="py-1 hover:text-yellow-500 cursor-pointer">
+                My Profile
+              </p>
+              <p
+                onClick={()=>navigate('/orders')}
+               className="py-1 hover:text-yellow-500 cursor-pointer">
+                Orders
+              </p>
+              <p
+                onClick={logout}
+                className="py-1 hover:text-red-500 cursor-pointer"
+              >
+                Logout
+              </p>
+            </div>
+          )}
         </div>
 
         <NavLink to="/cart" className="relative">
