@@ -3,6 +3,7 @@ import { ShopContext } from "../context/shopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const JustDropped = () => {
   const { products } = useContext(ShopContext);
@@ -52,13 +53,17 @@ const JustDropped = () => {
       </motion.div>
 
       <div className="mt-20 text-center">
-        <motion.button
-          className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 uppercase text-sm tracking-wide"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          View Full Collection
-        </motion.button>
+
+        <Link to="/collections">
+          <motion.button
+            className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 uppercase text-sm tracking-wide"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            View Full Collection
+          </motion.button>
+        </Link>
+        
       </div>
     </div>
   );
