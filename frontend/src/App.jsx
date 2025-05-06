@@ -14,7 +14,8 @@ import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
 import { ToastContainer, toast } from 'react-toastify';
 import Home from './views/home'
-import Verify from './views/verify'
+import Verify from './views/Verify'; 
+
 
 const App = () => {
   return (
