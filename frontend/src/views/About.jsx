@@ -1,19 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/chat.logo.png";
 
 
 const About = () => {
   return (
     <div className="bg-black min-h-screen text-white px-6 py-16 lg:px-20">
-      <div className="flex justify-center mb-10">
-        <img
-          src={logo}
-          alt="Dripine Logo"
-          className="h-20 drop-shadow-xl"
-        />
-      </div>
-
       <div className="text-center mb-12">
         <h1 className="text-5xl font-extrabold text-green-500 tracking-wide mb-4">
           About Dripine
