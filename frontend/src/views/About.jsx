@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { assets } from "../assets/assets";
+import logo from "../assets/chat.logo.png";
+
 
 const About = () => {
   return (
     <div className="bg-black min-h-screen text-white px-6 py-16 lg:px-20">
       <div className="flex justify-center mb-10">
         <img
-          src={assets.logo}
+          src={logo}
           alt="Dripine Logo"
           className="h-20 drop-shadow-xl"
         />
