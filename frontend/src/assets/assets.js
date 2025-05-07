@@ -28,5 +28,5 @@ export const assets = {
     stripe_logo,
     cross_icon,
     successkeylogo
-}
+};
 

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ShopContext } from '../context/shopContext';
-import { assets } from '../assets/assets.js';
 import RelatedProducts from '../components/RelatedProducts';
 import { toast } from 'react-toastify';
+import { assets } from '../assets/assets.js';
 
 const Product = () => {
   const { productId } = useParams();
@@ -59,11 +59,11 @@ const Product = () => {
           <h2 className="text-3xl font-semibold text-white max-w-xl text-center">{productData.name}</h2>
           <br></br>
           <div className='flex items-center gap-1 mt-2 justify-center '>
-            <img src={assets.star_icon} alt="" className='1-3 5' />
-            <img src={assets.star_icon} alt="" className='1-3 5' />
-            <img src={assets.star_icon} alt="" className='1-3 5' />
-            <img src={assets.star_icon} alt="" className='1-3 5' />
-            <img src={assets.star_dull_icon} alt="" className='1-3 5' />
+            <img src={assets.star_icon} alt="" className='w-5 h-5' />
+            <img src={assets.star_icon} alt="" className='w-5 h-5' />
+            <img src={assets.star_icon} alt="" className='w-5 h-5' />
+            <img src={assets.star_icon} alt="" className='w-5 h-5' />
+            <img src={assets.star_dull_icon} alt="" className='w-5 h-5' />
             <p className='pl-2'>(2560)</p>
           </div>
           <br></br>
@@ -104,11 +104,11 @@ const Product = () => {
         <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-white'>
           <p>Absolutely love the product! The quality and style are on point. I’ll definitely be coming back for more. Highly recommend!</p>
           <div className='flex items-center gap-1 mt-2'>
-          <img src={assets.star_icon} alt="" className='1-3 5' />
-          <img src={assets.star_icon} alt="" className='1-3 5' />
-          <img src={assets.star_icon} alt="" className='1-3 5' />
-          <img src={assets.star_icon} alt="" className='1-3 5' />
-          <img src={assets.star_icon} alt="" className='1-3 5' />
+          <img src={assets.star_icon} alt="" className='w-5 h-5' />
+          <img src={assets.star_icon} alt="" className='w-5 h-5' />
+          <img src={assets.star_icon} alt="" className='w-5 h-5' />
+          <img src={assets.star_icon} alt="" className='w-5 h-5' />
+          <img src={assets.star_icon} alt="" className='w-5 h-5' />
           </div>
         </div>
 
