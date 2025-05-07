@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
-import { assets } from "../assets/assets";
+import { assets } from "../assets/assets.js";
 import { ShopContext } from "../context/shopContext";
 
 const Navbar = () => {

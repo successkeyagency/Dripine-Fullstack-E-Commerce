@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
-import { assets } from "../assets/assets";
+import { assets } from "../assets/assets.js";
 
 const GlowingBox = () => {
   const logoTexture = useTexture(assets.logo);
