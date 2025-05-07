@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ShopContext } from '../context/shopContext';
-import { assets } from '../assets/assets';
+import { assets } from '../assets/assets.js';
 import RelatedProducts from '../components/RelatedProducts';
 import { toast } from 'react-toastify';
 
