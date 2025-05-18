@@ -17,7 +17,7 @@ const Login = () => {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     try {
-      if (currentstate === 'Sign Up' ) {
+      if (currentstate === 'signup' ) {
 
         const response = await axios.post(backendUrl + '/api/user/register',{name,email,password})
         if (response.data.success) {
@@ -57,7 +57,7 @@ const Login = () => {
         <hr className='border-none h-[2px] w-10 bg-green-500 mx-auto mt-2 rounded' />
       </div>
 
-      {currentstate === 'LogIn' ? '' : <input onChange={(e)=>setName(e.target.value)} value={name}
+      {currentstate === 'login' ? '' : <input onChange={(e)=>setName(e.target.value)} value={name}
         type="text" 
         className='w-full mb-4 px-4 py-3 bg-[#1a1a1a] border border-[#333] rounded-lg placeholder-gray-400 text-sm focus:outline-none focus:border-green-500 transition'
         placeholder='Name' 
@@ -80,12 +80,12 @@ const Login = () => {
       <div className='w-full flex justify-between text-sm mt-[-8px]'>
           <p className='cursor-pointer'>Forgot Your Password ?</p>
           {
-            currentstate === 'LogIn'
-            ? <p onClick={()=>setCurrentState('Sign Up')} className=' cursor-pointer'>Create account</p>
-            : <p onClick={()=>setCurrentState('LogIn')} className=' cursor-pointer'>Login Here</p>
+            currentstate === 'login'
+            ? <p onClick={()=>setCurrentState('signup')} className=' cursor-pointer'>Create account</p>
+            : <p onClick={()=>setCurrentState('login')} className=' cursor-pointer'>Login Here</p>
           }
       </div>
-      <button className='bg-green-400 text-black font-light px-8 py-2 mt-4'>{currentstate === 'Login' ? 'Sign In' : 'Sign Up'}</button>
+      <button className='bg-green-400 text-black font-light px-8 py-2 mt-4'>{currentstate === 'login' ? 'Log In' : 'Sign Up'}</button>
     </form>
   )
 }

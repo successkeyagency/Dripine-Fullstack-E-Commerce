@@ -4,6 +4,40 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const NextArrow = ({ onClick }) => (
+  <div
+    className="absolute right-1 sm:right-3 top-1/2 transform -translate-y-1/2 z-20 p-2 bg-white/20 backdrop-blur rounded-full cursor-pointer hover:bg-white/40 transition"
+    onClick={onClick}
+  >
+    <svg
+      className="w-5 h-5 text-white"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </div>
+);
+
+const PrevArrow = ({ onClick }) => (
+  <div
+    className="absolute left-1 sm:left-3 top-1/2 transform -translate-y-1/2 z-20 p-2 bg-white/20 backdrop-blur rounded-full cursor-pointer hover:bg-white/40 transition"
+    onClick={onClick}
+  >
+    <svg
+      className="w-5 h-5 text-white"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  </div>
+);
+
 const InstagramSlider = () => {
   const imageUrls = [
     "https://images.unsplash.com/photo-1589902860314-e910697dea18?q=80&w=1974",
@@ -22,6 +56,8 @@ const InstagramSlider = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4500,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
       { breakpoint: 640, settings: { slidesToShow: 1 } },
@@ -34,17 +70,18 @@ const InstagramSlider = () => {
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-purple-600 rounded-full filter blur-2xl opacity-40 animate-pulse"></div>
 
       <motion.div
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 text-center mb-12"
+        initial={{ opacity: 0, }}
+        animate={{ opacity: 1,}}
+        transition={{delay: 0.3, duration: 1 }}
+        className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6"
       >
-        <h2 className="text-5xl font-extrabold tracking-wide bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
+        <h3 className="text-center text-5xl sm:text-4xl md:text-5xl font-extrabold tracking-normal sm:tracking-wide bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
           Instagram Feed
-        </h2>
-        <p className="text-lg text-gray-300 mt-4">
+        </h3>
+        <p className="text-center text-lg text-gray-300 mt-4">
           Check out our latest heat on the gram.
         </p>
+        <br />
       </motion.div>
 
       <motion.div

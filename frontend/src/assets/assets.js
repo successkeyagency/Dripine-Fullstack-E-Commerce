@@ -12,6 +12,8 @@ import menu_icon from './menu_icon.png'
 import razorpay_logo from './razorpay_logo.png'
 import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
+import local_vid from './10380568-uhd_2732_1440_25fps (1).mp4'
+import local_vid2 from './7972014-uhd_2732_1440_25fps (1).mp4'
 
 export const assets = {
     logo,
@@ -27,6 +29,8 @@ export const assets = {
     razorpay_logo,
     stripe_logo,
     cross_icon,
-    successkeylogo
+    successkeylogo,
+    local_vid,
+    local_vid2
 };
 

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { assets } from "../assets/assets";
 
 const ExclusiveShoesSlider = () => {
   const { products } = useContext(ShopContext);
@@ -41,7 +42,7 @@ const ExclusiveShoesSlider = () => {
       className="w-full h-full object-cover"
     >
       <source
-        src="https://videos.pexels.com/video-files/7972014/7972014-uhd_2732_1440_25fps.mp4"
+        src={assets.local_vid2}
         type="video/mp4"
       />
       Your browser does not support the video tag.

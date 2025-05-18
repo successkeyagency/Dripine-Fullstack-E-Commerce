@@ -6,6 +6,8 @@ import { ShopContext } from "../context/shopContext";
 
 const Navbar = () => {
   const [visible, setvisible] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const {
     setShowSearch,
     getCartCount,
@@ -25,25 +27,39 @@ const Navbar = () => {
   return (
     <div className="w-full flex items-center justify-between px-6 py-5 bg-black text-white shadow-lg border-b border-neutral-800 relative z-50">
       <ul className="hidden md:flex gap-10 text-sm tracking-widest font-semibold uppercase flex-1 justify-center">
-        {["Home", "collections", "About", "Contact"].map((item, i) => (
-          <NavLink
-            to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-            key={i}
-            className="relative group"
-          >
-            <span className="text-white group-hover:text-yellow-400 transition">
-              {item}
-            </span>
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
-          </NavLink>
-        ))}
+        {[
+          ["Home", "/"],
+          ["collections", "/collections"],
+          ["About", "/about"],
+          ["Contact", "/contact"],
+          ["Admin", "https://dripine-admin.vercel.app"],
+        ].map(([label, link], i) => {
+          const isAdmin = label === "Admin";
+          return isAdmin ? (
+            <a
+              href={link}
+              key={i}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-orange-500 font-bold border-2 border-yellow-400 rounded-lg px-3 py-1 transition-colors duration-300 ease-in-out"
+            >
+              {label}
+            </a>
+          ) : (
+            <a href={link} key={i} className="relative group">
+              <span className="text-white group-hover:text-yellow-400 transition">
+                {label}
+              </span>
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-yellow-400 group-hover:w-full transition-all duration-300 ease-in-out"></span>
+            </a>
+          );
+        })}
       </ul>
 
       <div className="flex flex-1 md:flex-none md:justify-start">
         <Link to="/">
-        <img src={assets.logo} alt="Logo" className="w-16 object-contain" />
+          <img src={assets.logo} alt="Logo" className="w-16 object-contain" />
         </Link>
-        
       </div>
 
       <div className="flex items-center gap-5 justify-end flex-1">
@@ -53,25 +69,37 @@ const Navbar = () => {
           size={20}
         />
 
-        <div className="relative group">
+        <div className="relative" id="user-dropdown">
           <FaUser
-            onClick={() => (token ? null : navigate("/login"))}
+            onClick={() => {
+              if (token) {
+                setDropdownOpen((prev) => !prev);
+              } else {
+                navigate("/login");
+              }
+            }}
             className="text-white cursor-pointer"
             size={20}
           />
-
-          {token && (
-            <div className="absolute top-10 right-0 bg-white text-black shadow-xl rounded-xl p-4 min-w-[160px] hidden group-hover:block transition-all duration-300 z-50">
+          {token && dropdownOpen && (
+            <div className="absolute top-10 right-0 bg-white text-black shadow-xl rounded-xl p-4 min-w-[160px] transition-all duration-300 z-50">
               <p className="py-1 hover:text-yellow-500 cursor-pointer">
                 My Profile
               </p>
               <p
-                onClick={()=>navigate('/orders')}
-               className="py-1 hover:text-yellow-500 cursor-pointer">
+                onClick={() => {
+                  navigate("/orders");
+                  setDropdownOpen(false);
+                }}
+                className="py-1 hover:text-yellow-500 cursor-pointer"
+              >
                 Orders
               </p>
               <p
-                onClick={logout}
+                onClick={() => {
+                  logout();
+                  setDropdownOpen(false);
+                }}
                 className="py-1 hover:text-red-500 cursor-pointer"
               >
                 Logout
@@ -112,16 +140,52 @@ const Navbar = () => {
             />
             <span>Close</span>
           </div>
-          {["Home", "collections", "About", "Contact"].map((item, i) => (
-            <NavLink
-              key={i}
-              onClick={() => setvisible(false)}
-              className="py-2 text-lg hover:text-yellow-400 transition"
-              to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-            >
-              {item}
-            </NavLink>
-          ))}
+          {[
+            ["Home", "/"],
+            ["collections", "/collections"],
+            ["About", "/about"],
+            ["Contact", "/contact"],
+            ["Admin", "https://dripine-admin.vercel.app"],
+          ].map(([label, link], i) => {
+            const isAdmin = label === "Admin";
+
+            if (isAdmin) {
+              return (
+                <a
+                  key={i}
+                  href={link}
+                  onClick={() => setvisible(false)}
+                  className="block text-center text-orange-500 font-bold border-2 border-yellow-400 rounded-lg transition-colors duration-300 ease-in-out"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {label}
+                </a>
+              );
+            }
+
+            return link.startsWith("http") ? (
+              <a
+                key={i}
+                href={link}
+                onClick={() => setvisible(false)}
+                className="py-2 text-lg hover:text-yellow-400 transition block"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {label}
+              </a>
+            ) : (
+              <NavLink
+                key={i}
+                onClick={() => setvisible(false)}
+                className="py-2 text-lg hover:text-yellow-400 transition block"
+                to={link}
+              >
+                {label}
+              </NavLink>
+            );
+          })}
         </div>
       </div>
     </div>
