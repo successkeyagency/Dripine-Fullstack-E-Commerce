@@ -26,7 +26,7 @@ const Hero = () => {
         className="absolute top-0 left-0 w-full h-full object-cover opacity-60"
       >
         <source
-          src="https://videos.pexels.com/video-files/10380568/10380568-uhd_2732_1440_25fps.mp4"
+          src={assets.local_vid}
           type="video/mp4"
         />
         Your browser does not support the video tag.
