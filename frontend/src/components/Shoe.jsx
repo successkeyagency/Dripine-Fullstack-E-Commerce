@@ -31,27 +31,26 @@ const ExclusiveShoesSlider = () => {
   };
 
   return (
-    
-    <section >
-       <div className="w-full h-[50vh] relative overflow-hidden">
-    <video
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="w-full h-full object-cover"
-    >
-      <source
-        src={assets.local_vid2}
-        type="video/mp4"
-      />
-      Your browser does not support the video tag.
-    </video>
+    <section>
+      <div className="w-full h-[50vh] relative overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/7972014/7972014-uhd_2732_1440_25fps.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
 
-    <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-4xl font-bold">
-      Step Into The- <span className="text-green-600"> Hype</span> 
-    </div>
-  </div>
+        <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-4xl font-bold">
+          Step Into The- <span className="text-green-600"> Hype</span>
+        </div>
+      </div>
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -61,7 +60,6 @@ const ExclusiveShoesSlider = () => {
         <Title text1="EXCLUSIVE" text2="SHOES" />
         <p className="text-gray-400 mt-2 text-lg">Hype. Heat. Limited drops.</p>
       </motion.div>
-      
 
       <motion.div
         initial={{ opacity: 0 }}

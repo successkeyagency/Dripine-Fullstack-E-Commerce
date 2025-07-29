@@ -5,17 +5,21 @@ import AddFor707 from "../components/AddFor707";
 import Shoes from "../components/Shoe";
 import OurPolicy from "../components/OurPolicy";
 import InstagramSlider from "../components/Instagram";
+import SplashScreen from "../components/SplashScreen";
 
 const Home = () => {
   return (
-    <div>
-      <Hero />
-      <AddFor707 />
-      <JustDropped />
-      <Shoes />
-      <InstagramSlider />
-      <OurPolicy />
-    </div>
+    <>
+      <SplashScreen />
+      <div>
+        <Hero />
+        <AddFor707 />
+        <JustDropped />
+        <Shoes />
+        <InstagramSlider />
+        <OurPolicy />
+      </div>
+    </>
   );
 };
 

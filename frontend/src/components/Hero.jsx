@@ -18,7 +18,7 @@ const GlowingBox = () => {
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-[300px] md:h-[810px] overflow-hidden text-white bg-black">
+    <section className="relative w-full h-[300px] md:h-[500px] overflow-hidden text-white bg-black">
       {/* Desktop/Tablet Video */}
       <video
         autoPlay
