@@ -27,7 +27,7 @@ const Hero = () => {
         playsInline
         className="hidden sm:block absolute top-0 left-0 w-full h-full object-cover opacity-80"
       >
-        <source src="https://videos.pexels.com/video-files/32744337/13959796_2560_1440_25fps.mp4" type="video/mp4" />
+        <source src={assets.newvid2} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -39,7 +39,7 @@ const Hero = () => {
         playsInline
         className="sm:hidden absolute top-0 left-0 w-full h-full object-cover opacity-80"
       >
-        <source src="https://videos.pexels.com/video-files/27108758/12074592_1080_1918_30fps.mp4" type="video/mp4" />
+        <source src={assets.newvid1} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

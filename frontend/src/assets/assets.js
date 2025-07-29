@@ -14,6 +14,9 @@ import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
 import local_vid from './10380568-uhd_2732_1440_25fps (1).mp4'
 import local_vid2 from './7972014-uhd_2732_1440_25fps (1).mp4'
+import newvid1 from './12074591_720_1278_30fps.mp4'
+import newvid2 from './13959795_1920_1080_25fps.mp4'
+
 
 export const assets = {
     logo,
@@ -31,6 +34,8 @@ export const assets = {
     cross_icon,
     successkeylogo,
     local_vid,
-    local_vid2
+    local_vid2,
+    newvid1,
+    newvid2
 };
 
