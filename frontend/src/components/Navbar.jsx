@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full flex items-center justify-between px-6 py-5 bg-black text-white shadow-lg border-b border-neutral-800 relative z-50">
-      <ul className="hidden md:flex gap-10 text-sm tracking-widest font-semibold uppercase flex-1 justify-center">
+      <ul className="hidden md:flex md:gap-4 lg:gap-10 gap-10 text-sm tracking-widest font-semibold uppercase flex-1 justify-center">
         {[
           ["Home", "/"],
           ["collections", "/collections"],
@@ -41,7 +41,7 @@ const Navbar = () => {
               key={i}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-orange-500 font-bold border-2 border-yellow-400 rounded-lg px-3 py-1 transition-colors duration-300 ease-in-out"
+              className="text-orange-500 font-bold border-2 border-yellow-400 rounded-lg px-2 py-1 transition-colors duration-300 ease-in-out"
             >
               {label}
             </a>
