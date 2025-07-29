@@ -33,19 +33,19 @@ const ExclusiveShoesSlider = () => {
   return (
     <section>
       <div className="w-full h-[50vh] relative overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source
-            src="https://videos.pexels.com/video-files/7972014/7972014-uhd_2732_1440_25fps.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
+        {/* Desktop Background */}
+<img
+  src="https://images.unsplash.com/photo-1507553532144-b9df5e38c8d1?q=80&w=1513&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  alt="Shoe Background Desktop"
+  className="hidden sm:block absolute top-0 left-0 w-full h-full object-cover opacity-100 z-0"
+/>
+
+{/* Mobile Background */}
+<img
+  src="https://images.unsplash.com/photo-1599069446175-e8ee7e59fe79?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  alt="Shoe Background Mobile"
+  className="block sm:hidden absolute top-0 left-0 w-full h-full object-cover opacity-80 z-0"
+/>
 
         <div className="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-4xl font-bold">
           Step Into The- <span className="text-green-600"> Hype</span>
